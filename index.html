@@ -7,6 +7,11 @@
   </head>
   <body>
     <div class="container">
+
+    </div>
+
+
+    <div class="container">
       
       <div class="row">
           <div class="col-md-6">
@@ -29,7 +34,7 @@
 
           <div class="col-md-6">
               <div class="form-group">
-                  <label for="initial_deposit">Estimated Rate Of Return</label>
+                  <label for="estimated_return">Estimated Rate Of Return</label>
                   <div class="row">
 
                       <div class="input-group col-md-8 col-sm-10">
@@ -46,6 +51,30 @@
               </div>
           </div>
       </div>
+
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="contributions">Contributions</label>
+                  <div class="row">
+
+                      <div class="input-group col-md-8 col-sm-10">
+                          <div class="input-group-prepend">
+                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="contributions">&minus;</button>
+                          </div>
+                          <input class="form-control text-center" id="contributions" type="text" name="contributions" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
+                          <div class="input-group-append">
+                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="contributions">&plus;</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+
+
    </div>
 
 
