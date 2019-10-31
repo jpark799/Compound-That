@@ -1,4 +1,4 @@
-(function () {
+const calc = () => {
     let initialDeposit = document.querySelector('#initialDeposit')
     let contributionAmount = document.querySelector('#contributionAmount')
     let investmentTimespan = document.querySelector('#investmentTimespan')
@@ -14,21 +14,21 @@
         let newValue = parseFloat(element.value.replace(/\$/, ''))
 
         if (isNaN(parseFloat(newValue))) {
-            newValue = oldValue;
+            newValue = oldValue
         } else {
             if (action == 'add') {
-                newValue += step;
+                newValue += step
             } else if (action == 'sub') {
-                newValue -= step;
+                newValue -= step
             }
 
-            newValue = newValue < min ? min : newValue > max ? max : newValue;
+            newValue = newValue < min ? min : newValue > max ? max : newValue
         }
 
-        element.dataset.value = newValue;
-        element.value = (element.dataset.prepend || '') + newValue + (element.dataset.append || '');
+        element.dataset.value = newValue
+        element.value = (element.dataset.prepend || '') + newValue + (element.dataset.append || '')
 
-        updateChart();
+        updateChart()
     }
 
     function getChartData() {
@@ -40,39 +40,39 @@
         let investmentTimeSpan = parseInt(investmentTimespan.value) // Investment Time Span
         let currentYear = (new Date()).getFullYear()
 
-        let labels = [];
+        let labels = []
         for (let year = currentYear; year < currentYear + investmentTimeSpan; year++) {
-            labels.push(year);
+            labels.push(year)
         }
 
         let principalDataset = {
             label: 'Total Principal',
             backgroundColor: 'rgb(0, 123, 255)',
             data: []
-        };
+        }
 
         let interestDataset = {
             label: "Total Interest",
             backgroundColor: 'rgb(23, 162, 184)',
             data: []
-        };
+        }
 
         for (let i = 1; i <= investmentTimeSpan; i++) {
-            let principal = principleFormInput+ ( contributionFormInput* contributionPeriodFormInput * i ),
-                interest = 0,
-                balance = principal;
+            let principal = principleFormInput+ ( contributionFormInput* contributionPeriodFormInput * i )
+            let interest = 0
+            let balance = principal
 
             if (estimatedReturnFormInput) {
-                let x = Math.pow(1 + estimatedReturnFormInput/ compoundPeriodFormInput, compoundPeriodFormInput* i),
-                    compoundInterest = principleFormInput* x,
-                    contributionInterest = contributionFormInput* (x - 1) / (estimatedReturnFormInput/ contributionPeriodFormInput);
+                let x = Math.pow(1 + estimatedReturnFormInput/ compoundPeriodFormInput, compoundPeriodFormInput* i)
+                let compoundInterest = principleFormInput* x
+                let contributionInterest = contributionFormInput* (x - 1) / (estimatedReturnFormInput/ contributionPeriodFormInput)
                 interest = (compoundInterest + contributionInterest - principal).toFixed(0)
-                balance = (compoundInterest + contributionInterest).toFixed(0);
+                balance = (compoundInterest + contributionInterest).toFixed(0)
             }
 
-            futureBalance.innerHTML = '$' + balance;
-            principalDataset.data.push(principal);
-            interestDataset.data.push(interest);
+            futureBalance.innerHTML = '$' + balance
+            principalDataset.data.push(principal)
+            interestDataset.data.push(interest)
         }
 
         return {
@@ -82,56 +82,56 @@
     }
 
     function updateChart() {
-        let data = getChartData();
+        let data = getChartData()
 
-        chart.data.labels = data.labels;
-        chart.data.datasets[0].data = data.datasets[0].data;
-        chart.data.datasets[1].data = data.datasets[1].data;
-        chart.update();
+        chart.data.labels = data.labels
+        chart.data.datasets[0].data = data.datasets[0].data
+        chart.data.datasets[1].data = data.datasets[1].data
+        chart.update()
     }
 
     initialDeposit.addEventListener('change', function () {
-        updateValue(this);
-    });
+        updateValue(this)
+    })
 
     contributionAmount.addEventListener('change', function () {
-        updateValue(this);
-    });
+        updateValue(this)
+    })
 
     estimatedReturn.addEventListener('change', function () {
-        updateValue(this);
-    });
+        updateValue(this)
+    })
 
     investmentTimespan.addEventListener('change', function () {
-        investmentTimespanText.innerHTML = this.value + ' years';
-        updateChart();
-    });
+        investmentTimespanText.innerHTML = this.value + ' years'
+        updateChart()
+    })
 
     investmentTimespan.addEventListener('input', function () {
-        investmentTimespanText.innerHTML = this.value + ' years';
-    });
+        investmentTimespanText.innerHTML = this.value + ' years'
+    })
 
-    let radios = document.querySelectorAll('[name="contribution_period"], [name="compound_period"]');
+    let radios = document.querySelectorAll('[name="contribution_period"], [name="compound_period"]')
     for (let j = 0; j < radios.length; j++) {
-        radios[j].addEventListener('change', updateChart);
+        radios[j].addEventListener('change', updateChart)
     }
 
-    let buttons = document.querySelectorAll('[data-counter]');
+    let buttons = document.querySelectorAll('[data-counter]')
     for (let i = 0; i < buttons.length; i++) {
-        let button = buttons[i];
+        let button = buttons[i]
 
         button.addEventListener('click', function () {
-            let field = document.querySelector('[name="' + this.dataset.field + '"]'),
-                action = this.dataset.counter;
+            let field = document.querySelector('[name="' + this.dataset.field + '"]')
+            let action = this.dataset.counter
 
             if (field) {
-                updateValue(field, action);
+                updateValue(field, action)
             }
-        });
+        })
     }
 
-    let ctx = document.getElementById('myChart').getContext('2d'),
-        chart = new Chart(ctx, {
+    let ctx = document.getElementById('myChart').getContext('2d')
+    let chart = new Chart(ctx, {
             type: 'bar',
             data: getChartData(),
             options: {
@@ -143,7 +143,7 @@
                     intersect: false,
                     callbacks: {
                         label: function (tooltipItem, data) {
-                            return data.datasets[tooltipItem.datasetIndex].label + ': $' + tooltipItem.yLabel;
+                            return data.datasets[tooltipItem.datasetIndex].label + ': $' + tooltipItem.yLabel
                         }
                     }
                 },
@@ -160,7 +160,7 @@
                         stacked: true,
                         ticks: {
                             callback: function (value) {
-                                return '$' + value;
+                                return '$' + value
                             }
                         },
                         scaleLabel: {
@@ -170,6 +170,8 @@
                     }]
                 }
             }
-        });
+        })
 
-})()
+}
+
+calc()
