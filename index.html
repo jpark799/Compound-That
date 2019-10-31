@@ -19,44 +19,42 @@
 
     <div class="container">
       
-      <div class="row">
-          <div class="col-md-6">
-              <div class="form-group">
-                  <label for="initial_deposit">Initial Deposit</label>
-                  <div class="row">
-
-                      <div class="input-group col-md-8 col-sm-10">
-                          <div class="input-group-prepend">
-                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="initial_deposit">&minus;</button>
-                          </div>
-                          <input class="form-control text-center" id="initial_deposit" type="text" name="initial_deposit" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
-                          <div class="input-group-append">
-                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="initial_deposit">&plus;</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="estimated_return">Estimated Rate Of Return</label>
+                    <label for="initial_deposit">Initial Deposit</label>
                     <div class="row">
-                      <div class="input-group col-md-8 col-sm-10">
-                          <div class="input-group-prepend">
-                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="estimated_return">&minus;</button>
-                          </div>
-                          <input class="form-control text-center" id="estimated_return" type="text" name="estimated_return" min="0" max="50" step="0.25" value="5.00%" data-value="5.00" data-prepend="%">
-                          <div class="input-group-append">
-                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="estimated_return">&plus;</button>
-                          </div>
-                      </div>
+
+                        <div class="input-group col-md-8 col-sm-10">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="initial_deposit">&minus;</button>
+                            </div>
+                            <input class="form-control text-center" id="initial_deposit" type="text" name="initial_deposit" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="initial_deposit">&plus;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-             </div>
+            </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="investment_timespan">Investment Timespan</label>: <span id="investment_timespan_text">5 years </span>
+
+                    <div class="row">
+                        <div class="input-group col-md-8 col-sm-10">
+                            <input class="form-control" id="investment_timespan" type="range" name="investment_timespan" min="2" max="50" step="1" value="5">                        
+                        </div>
+                    </div>
+            </div>
         </div>
+    
+        
+    </div>
 
         <div class="row">
+            
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="contributions">Contributions</label>
@@ -76,23 +74,7 @@
             </div>
 
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="investment_timespan">Investment Timespan</label>
-                        <div class="row">
-                            <div class="input-group col-md-8 col-sm-10">
-                                <input class="form-control" id="investment_timespan" type="range" name="investment_timespan" min="2" max="50" step="1" value="5">                        
-                            </div>
-                        </div>
-                    <span id="investment_timespan_text">5 years </span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="form-group row">
-
-                <div class="col-md-6">
-                    <div>Contribution Frequency</div>
+                <div>Contribution Frequency</div><br/>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" id="contribution_period_daily" type="radio" name="contribution_period" value="365">
                         <label class="form-check-label" for="contribution_period_daily">Daily</label>
@@ -107,11 +89,36 @@
                         <input class="form-check-input" id="contribution_period_annually" type="radio" name="contribution_period" value="1">
                         <label class="form-check-label" for="contribution_period_annually">Annually</label>
                     </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-group row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="estimated_return">Estimated Rate Of Return</label>
+                    <div class="row">
+                      <div class="input-group col-md-8 col-sm-10">
+                          <div class="input-group-prepend">
+                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="estimated_return">&minus;</button>
+                          </div>
+                          <input class="form-control text-center" id="estimated_return" type="text" name="estimated_return" min="0" max="50" step="0.25" value="5.00%" data-value="5.00" data-prepend="%">
+                          <div class="input-group-append">
+                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="estimated_return">&plus;</button>
+                          </div>
+                      </div>
+                    </div>
                 </div>
+             </div>
+
+
+
 
 
             <div class="col-md-6">
-                <div>Compound Frequency</div>
+                <div>Compound Frequency</div> <br/>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" id="compound_period_daily" type="radio" name="compound_period" value="365">
                     <label class="form-check-label" for="compound_period_daily">Daily</label>
@@ -127,6 +134,7 @@
                     <label class="form-check-label" for="compound_period_annually">Annually</label>
                 </div>
             </div>
+
         </div>
     </div>
 
