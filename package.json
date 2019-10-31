@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpark799/Compound-That.git"
+    "url": "git+https://github.com/jpark799/CompoundThat.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jpark799/Compound-That/issues"
+    "url": "https://github.com/jpark799/CompoundThat/issues"
   },
-  "homepage": "https://github.com/jpark799/Compound-That#readme",
+  "homepage": "https://github.com/jpark799/CompoundThat#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.1"
