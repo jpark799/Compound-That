@@ -32,52 +32,52 @@
     }
 
     function getChartData() {
-        let P = parseFloat(initialDeposit.dataset.value) // Principal
-        let r = parseFloat(estimatedReturn.dataset.value / 100) // Annual Interest Rate
-        let c = parseFloat(contributionAmount.dataset.value) // Contribution Amount
-        let n = parseInt(document.querySelector('[name="compound_period"]:checked').value) // Compound Period
-        let n2 = parseInt(document.querySelector('[name="contribution_period"]:checked').value) // Contribution Period
-        let t = parseInt(investmentTimespan.value) // Investment Time Span
+        let principleFormInput= parseFloat(initialDeposit.dataset.value) // Principal
+        let estimatedReturnFormInput= parseFloat(estimatedReturn.dataset.value / 100) // Annual Interest Rate
+        let contributionFormInput= parseFloat(contributionAmount.dataset.value) // Contribution Amount
+        let compoundPeriodFormInput= parseInt(document.querySelector('[name="compound_period"]:checked').value) // Compound Period
+        let contributionPeriodFormInput = parseInt(document.querySelector('[name="contribution_period"]:checked').value) // Contribution Period
+        let investmentTimeSpan = parseInt(investmentTimespan.value) // Investment Time Span
         let currentYear = (new Date()).getFullYear()
 
         let labels = [];
-        for (let year = currentYear; year < currentYear + t; year++) {
+        for (let year = currentYear; year < currentYear + investmentTimeSpan; year++) {
             labels.push(year);
         }
 
-        let principal_dataset = {
+        let principalDataset = {
             label: 'Total Principal',
             backgroundColor: 'rgb(0, 123, 255)',
             data: []
         };
 
-        let interest_dataset = {
+        let interestDataset = {
             label: "Total Interest",
             backgroundColor: 'rgb(23, 162, 184)',
             data: []
         };
 
-        for (let i = 1; i <= t; i++) {
-            let principal = P + ( c * n2 * i ),
+        for (let i = 1; i <= investmentTimeSpan; i++) {
+            let principal = principleFormInput+ ( contributionFormInput* contributionPeriodFormInput * i ),
                 interest = 0,
                 balance = principal;
 
-            if (r) {
-                let x = Math.pow(1 + r / n, n * i),
-                    compound_interest = P * x,
-                    contribution_interest = c * (x - 1) / (r / n2);
-                interest = (compound_interest + contribution_interest - principal).toFixed(0)
-                balance = (compound_interest + contribution_interest).toFixed(0);
+            if (estimatedReturnFormInput) {
+                let x = Math.pow(1 + estimatedReturnFormInput/ compoundPeriodFormInput, compoundPeriodFormInput* i),
+                    compoundInterest = principleFormInput* x,
+                    contributionInterest = contributionFormInput* (x - 1) / (estimatedReturnFormInput/ contributionPeriodFormInput);
+                interest = (compoundInterest + contributionInterest - principal).toFixed(0)
+                balance = (compoundInterest + contributionInterest).toFixed(0);
             }
 
             futureBalance.innerHTML = '$' + balance;
-            principal_dataset.data.push(principal);
-            interest_dataset.data.push(interest);
+            principalDataset.data.push(principal);
+            interestDataset.data.push(interest);
         }
 
         return {
             labels: labels,
-            datasets: [principal_dataset, interest_dataset]
+            datasets: [principalDataset, interestDataset]
         }
     }
 
