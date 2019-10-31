@@ -1,5 +1,3 @@
-const port = process.env.PORT || 8000;
-
 const calc = () => {
     let initialDeposit = document.querySelector('#initialDeposit')
     let contributionAmount = document.querySelector('#contributionAmount')
@@ -177,7 +175,3 @@ const calc = () => {
 }
 
 calc()
-
-server.listen(port, () => {
-    console.log("App is running on port " + port);
-});
