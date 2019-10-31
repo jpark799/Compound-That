@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
-    <div class="container-fluid">
-            <div class="col-md-10 text-center">
+      <div class="container-fluid">
+          <div class="col-md-10 text-center">
                 <div><h3>Compound That! </h3> </div>
                 <div>Future Balance</div>
-                <div class="h3" id="future_balance">?</div>
+                <div class="h3" id="futureBalance">?</div>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
                 <canvas id="myChart"></canvas>
             </div>
             <div class="col-md-2"></div>
@@ -22,16 +23,16 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="initial_deposit">Initial Deposit</label>
+                    <label for="initialDeposit">Initial Deposit</label>
                     <div class="row">
 
                         <div class="input-group col-md-8 col-sm-10">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="initial_deposit">&minus;</button>
+                                <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="initialDeposit">&minus;</button>
                             </div>
-                            <input class="form-control text-center" id="initial_deposit" type="text" name="initial_deposit" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
+                            <input class="form-control text-center" id="initialDeposit" type="text" name="initialDeposit" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="initial_deposit">&plus;</button>
+                                <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="initialDeposit">&plus;</button>
                             </div>
                         </div>
                     </div>
@@ -40,11 +41,11 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="investment_timespan">Investment Timespan</label>: <span id="investment_timespan_text">5 years </span>
+                <label for="investmentTimespan">Investment Timespan</label>: <span id="investmentTimespanText">5 years </span>
 
                     <div class="row">
                         <div class="input-group col-md-8 col-sm-10">
-                            <input class="form-control" id="investment_timespan" type="range" name="investment_timespan" min="2" max="50" step="1" value="5">                        
+                            <input class="form-control" id="investmentTimespan" type="range" name="investmentTimespan" min="2" max="50" step="1" value="5">                        
                         </div>
                     </div>
             </div>
@@ -57,16 +58,16 @@
             
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="contributions">Contributions</label>
+                    <label for="contributionAmount">Contributions</label>
                     <div class="row">
 
                         <div class="input-group col-md-8 col-sm-10">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="contributions">&minus;</button>
+                                <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="contributionAmount">&minus;</button>
                             </div>
-                            <input class="form-control text-center" id="contributions" type="text" name="contributions" min="100" max="1000000" step="100" value="$5000" data-value="5000" data-prepend="$">
+                            <input class="form-control text-center" id="contributionAmount" type="text" name="contributionAmount" min="100" max="1000000" step="100" value="$100" data-value="100" data-prepend="$">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="contributions">&plus;</button>
+                                <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="contributionAmount">&plus;</button>
                             </div>
                         </div>
                     </div>
@@ -98,15 +99,15 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="estimated_return">Estimated Rate Of Return</label>
+                    <label for="estimatedReturn">Estimated Rate Of Return</label>
                     <div class="row">
                       <div class="input-group col-md-8 col-sm-10">
                           <div class="input-group-prepend">
-                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="estimated_return">&minus;</button>
+                              <button class="btn btn-outline-danger" type="button" data-counter="sub" data-field="estimatedReturn">&minus;</button>
                           </div>
-                          <input class="form-control text-center" id="estimated_return" type="text" name="estimated_return" min="0" max="50" step="0.25" value="5.00%" data-value="5.00" data-prepend="%">
+                          <input class="form-control text-center" id="estimatedReturn" type="text" name="estimatedReturn" min="0" max="50" step="0.25" value="5.00%" data-value="5.00" data-append="%">
                           <div class="input-group-append">
-                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="estimated_return">&plus;</button>
+                              <button class="btn btn-outline-primary" type="button" data-counter="add" data-field="estimatedReturn">&plus;</button>
                           </div>
                       </div>
                     </div>
@@ -142,6 +143,7 @@
     <!-- <footer>          
         Made with ❤️ in S. Korea
     </footer> -->
-    <script src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    
   </body>
 </html>
