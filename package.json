@@ -4,7 +4,9 @@
   "description": "A compounding interest calculator I created for my mom.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"   
+
   },
   "repository": {
     "type": "git",
