@@ -1,0 +1,19 @@
+{
+  "name": "compound-that",
+  "version": "1.0.0",
+  "description": "A compounding interest calculator I created for my mom.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpark799/Compound-That.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpark799/Compound-That/issues"
+  },
+  "homepage": "https://github.com/jpark799/Compound-That#readme"
+}
