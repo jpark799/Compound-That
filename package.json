@@ -1,26 +1,25 @@
 {
-  "name": "compound-that",
+  "name": "compoundthat",
   "version": "1.0.0",
   "description": "A compounding interest calculator I created for my mom.",
   "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.9.1",
+    "node": "^12.13.0",
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"   
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpark799/CompoundThat.git"
+    "url": "git+https://github.com/jpark799/Compound-That.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jpark799/CompoundThat/issues"
+    "url": "https://github.com/jpark799/Compound-That/issues"
   },
-  "homepage": "https://github.com/jpark799/CompoundThat#readme",
-  "dependencies": {
-    "bootstrap": "^4.3.1",
-    "chart.js": "^2.9.1",
-    "node": "^12.13.0"
-  }
+  "homepage": "https://github.com/jpark799/Compound-That#readme"
 }
