@@ -1,7 +1,7 @@
 # Compound That!
 ---
 A compounding interest calculator I created for my mom because she recently downloaded Robinhood. 
-Live version of project can be found [here](https://compoundthat.herokuapp.com/). 
+A live version of the project can be found [here](https://compoundthat.herokuapp.com/). 
 ![Screenshot of Final Version](https://i.ibb.co/N7gCZhN/Screen-Shot-2019-11-04-at-7-16-19-AM.png)
 
 ## Background
