@@ -10,3 +10,6 @@ My mother recently became very interested in financial markets and we’ve had s
 ## Wireframe
 This was the initial wireframe that I drew up. I decided to add a daily option for contribution and compound frequency to the final version as well as consolidating the options into 2 columns.  
 ![Inital Wireframe](https://i.ibb.co/5jqFYq4/IMG-2628-1.jpg)
+
+
+Note: The reason for the PHP file was so the file could be hosted on Heroku. Read more about the PHP hack [here](https://medium.com/@winnieliang/how-to-run-a-simple-html-css-javascript-application-on-heroku-4e664c541b0b). Thanks, Winnie! 
